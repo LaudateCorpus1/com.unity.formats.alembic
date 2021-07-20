@@ -17,16 +17,16 @@ void CopyTo(const Vector<T> &src, T* dst, size_t length, size_t offset = 0)
 }
 
 template<class T, class U>
-void Assign(Vector<T>& dst, const U& src, int point_count)
+void Assign(Vector<T>& dst, const U& src, int count)
 {
-    dst.resize(point_count);
+    dst.resize(count);
     auto src_data = src->get();
     auto dst_data = dst.data();
-    memcpy(dst_data, src_data, point_count * sizeof(T));
+    memcpy(dst_data, src_data, count * sizeof(T));
 }
 
 template<class T>
-void Assign(Vector<T>& dst, const T* src, int point_count)
+void Assign(Vector<T>& dst, const T* src, int count)
 {
     if (src == nullptr)
     {
@@ -34,9 +34,9 @@ void Assign(Vector<T>& dst, const T* src, int point_count)
         return;;
     }
 
-    dst.resize(point_count);
+    dst.resize(count);
     auto dst_data = dst.data();
-    memcpy(dst_data, src, point_count * sizeof(T));
+    memcpy(dst_data, src, count * sizeof(T));
 }
 
 template <class T>
