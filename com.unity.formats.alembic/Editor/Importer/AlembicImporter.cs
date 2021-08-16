@@ -75,7 +75,7 @@ namespace UnityEditor.Formats.Alembic.Importer
         }
     }
 
-    [ScriptedImporter(9, "abc")]
+    [ScriptedImporter(10, "abc")]
     internal class AlembicImporter : ScriptedImporter
     {
         [SerializeField]
@@ -227,6 +227,8 @@ namespace UnityEditor.Formats.Alembic.Importer
                     }
 
                     ApplyMaterialAssignments(go, subassets);
+
+                    AlembicImporterAnalytics.SendAnalytics(abcStream.abcTreeRoot, this);
                 }
             }
 
